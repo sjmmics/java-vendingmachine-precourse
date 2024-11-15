@@ -28,6 +28,9 @@ public class StringValidator {
         if (START_ZERO(line)) {
             throw new IllegalArgumentException(ExceptionMessage.START_WITH_ZERO.get());
         }
+        if (DOES_OUT_OF_INT(line)) {
+            throw new IllegalArgumentException(ExceptionMessage.OUT_OF_INT_BOUND.get());
+        }
     }
 
     public static boolean IS_NOT_DIGIT(String line) {

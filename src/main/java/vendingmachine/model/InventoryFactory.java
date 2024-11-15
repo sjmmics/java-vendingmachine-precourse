@@ -9,6 +9,7 @@ import static vendingmachine.util.StringValidator.DOES_OUT_OF_INT;
 import static vendingmachine.util.StringValidator.IS_NOT_DIGIT;
 import static vendingmachine.util.StringValidator.START_ZERO;
 import static vendingmachine.util.StringValidator.VALIDATE_BASIC_FORMAT;
+import static vendingmachine.util.StringValidator.VALIDATE_NUMBER_FORMAT;
 
 public class InventoryFactory {
 
@@ -51,17 +52,10 @@ public class InventoryFactory {
 
     private void validatePriceAndQuantityDigit(String price, String quantity)
                                                throws IllegalArgumentException {
-        if (IS_NOT_DIGIT(price) || IS_NOT_DIGIT(quantity)) {
-            throw new IllegalArgumentException(ExceptionMessage.IS_NOT_DIGIT.get());
-        }
-        if (START_ZERO(price) || START_ZERO(quantity)) {
-            throw new IllegalArgumentException(ExceptionMessage.START_WITH_ZERO.get());
-        }
-        if (DOES_OUT_OF_INT(price) || DOES_OUT_OF_INT(quantity)) {
-            throw new IllegalArgumentException(ExceptionMessage.OUT_OF_INT_BOUND.get());
-        }
+        VALIDATE_NUMBER_FORMAT(price);
+        VALIDATE_NUMBER_FORMAT(quantity);
+        validatePriceAndQuantityContent(price, quantity);
     }
-
 
     private void validatePriceAndQuantityContent(String price, String quantity)
                                                  throws IllegalArgumentException {
