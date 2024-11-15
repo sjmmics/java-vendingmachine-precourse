@@ -3,6 +3,7 @@ package vendingmachine.controller;
 import vendingmachine.model.Coins;
 import vendingmachine.model.Inventory;
 import vendingmachine.model.InventoryFactory;
+import vendingmachine.model.PutMoney;
 import vendingmachine.model.dto.VMInitialMoney;
 import vendingmachine.service.VMService;
 import vendingmachine.view.InputView;
@@ -28,6 +29,7 @@ public class VMController {
         outputView.printCoins(coins);
         Inventory inventory = getInventoryFromInput();
         service.saveInventory(inventory);
+        PutMoney putMoney = getPutMoneyFromInput();
     }
 
     private VMInitialMoney getInitialMoneyFromInput() {
@@ -52,5 +54,17 @@ public class VMController {
             }
         }
     }
+
+    private PutMoney getPutMoneyFromInput() {
+        while (true) {
+            try {
+                String line = inputView.getPutMoney();
+                return PutMoney.getFromLine(line);
+            } catch (IllegalArgumentException e) {
+                System.out.println(e.getMessage());
+            }
+        }
+    }
+
 
 }

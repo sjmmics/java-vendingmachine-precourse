@@ -15,4 +15,9 @@ public class InputView {
         System.out.println(IOMessage.ENTER_INVENTORY);
         return Console.readLine();
     }
+
+    public String getPutMoney() {
+        System.out.println(IOMessage.ENTER_PUT_MONEY);
+        return Console.readLine();
+    }
 }
