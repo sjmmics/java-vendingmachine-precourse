@@ -10,4 +10,9 @@ public class InputView {
         System.out.println(IOMessage.ENTER_INITIAL_MONEY);
         return Console.readLine();
     }
+
+    public String getInventory() {
+        System.out.println(IOMessage.ENTER_INVENTORY);
+        return Console.readLine();
+    }
 }

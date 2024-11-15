@@ -23,10 +23,11 @@ public class VMController {
     }
 
     public void run() {
-        VMInitialMoney initialMoney = getInitialMoney();
         VMInitialMoney initialMoney = getInitialMoneyFromInput();
         Coins coins = service.createCoins(initialMoney);
         outputView.printCoins(coins);
+        Inventory inventory = getInventoryFromInput();
+        service.saveInventory(inventory);
     }
 
     private VMInitialMoney getInitialMoneyFromInput() {
@@ -34,6 +35,18 @@ public class VMController {
             try {
                 String line = inputView.getInitialMoney();
                 return new VMInitialMoney(line);
+            } catch (IllegalArgumentException e) {
+                System.out.println(e.getMessage());
+            }
+        }
+    }
+
+    private Inventory getInventoryFromInput() {
+        InventoryFactory factory = new InventoryFactory();
+        while (true) {
+            try {
+                String line = inputView.getInventory();
+                return factory.create(line);
             } catch (IllegalArgumentException e) {
                 System.out.println(e.getMessage());
             }

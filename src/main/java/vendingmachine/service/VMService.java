@@ -1,6 +1,7 @@
 package vendingmachine.service;
 
 import vendingmachine.model.Coins;
+import vendingmachine.model.Inventory;
 import vendingmachine.model.dto.VMInitialMoney;
 import vendingmachine.repository.VMRepository;
 

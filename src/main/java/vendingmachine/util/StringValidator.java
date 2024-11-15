@@ -44,5 +44,13 @@ public class StringValidator {
         return line.startsWith("0");
     }
 
+    public static boolean DOES_OUT_OF_INT(String line) {
+        try {
+            Integer.parseInt(line);
+            return false;
+        } catch (NumberFormatException e) {
+            return true;
+        }
+    }
 
 }

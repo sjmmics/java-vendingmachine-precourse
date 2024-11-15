@@ -14,7 +14,11 @@ public enum ExceptionMessage {
 
     OUT_OF_INT_BOUND("2의 31제곱보다 작아야 합니다."),
 
-    MOD_TEN_NOT_ZERO("10원으로 나누어 떨어져야 합니다.");
+    MOD_TEN_NOT_ZERO("10원으로 나누어 떨어져야 합니다."),
+
+    PRICE_MOD_TEN_NOT_ZERO("가격은 10원으로 나누어 떨어져야 합니다."),
+
+    ZERO_QUANTITY("수량은 1 이상이어야 합니다.");
 
     public static final String PREFIX = "[ERROR] ";
 
@@ -27,6 +31,6 @@ public enum ExceptionMessage {
     }
 
     public String get() {
-        return this.message;
+        return PREFIX + this.message + RE_ENTER;
     }
 }
