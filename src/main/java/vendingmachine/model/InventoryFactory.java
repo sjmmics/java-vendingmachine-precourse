@@ -5,9 +5,6 @@ import vendingmachine.util.message.ExceptionMessage;
 import java.util.HashMap;
 import java.util.Map;
 
-import static vendingmachine.util.StringValidator.DOES_OUT_OF_INT;
-import static vendingmachine.util.StringValidator.IS_NOT_DIGIT;
-import static vendingmachine.util.StringValidator.START_ZERO;
 import static vendingmachine.util.StringValidator.VALIDATE_BASIC_FORMAT;
 import static vendingmachine.util.StringValidator.VALIDATE_NUMBER_FORMAT;
 

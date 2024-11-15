@@ -13,11 +13,11 @@ public class StringValidator {
         }
     }
 
-    public static boolean IS_EMPTY(String line) {
+    private static boolean IS_EMPTY(String line) {
         return line.isEmpty();
     }
 
-    public static boolean CONTAINS_BLANK(String line) {
+    private static boolean CONTAINS_BLANK(String line) {
         return line.contains(" ");
     }
 
@@ -43,11 +43,11 @@ public class StringValidator {
         return false;
     }
 
-    public static boolean START_ZERO(String line) {
+    private static boolean START_ZERO(String line) {
         return line.startsWith("0");
     }
 
-    public static boolean DOES_OUT_OF_INT(String line) {
+    private static boolean DOES_OUT_OF_INT(String line) {
         try {
             Integer.parseInt(line);
             return false;
