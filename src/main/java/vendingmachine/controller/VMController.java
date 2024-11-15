@@ -1,6 +1,5 @@
 package vendingmachine.controller;
 
-import vendingmachine.model.dto.VMInitialMoney;
 import vendingmachine.service.VMService;
 import vendingmachine.view.InputView;
 import vendingmachine.view.OutputView;
@@ -21,7 +20,6 @@ public class VMController {
 
     public void run() {
         VMInitialMoney initialMoney = getInitialMoney();
-        service.createCoins(initialMoney);
     }
 
     private VMInitialMoney getInitialMoney() {

@@ -17,7 +17,10 @@ public enum Coin {
         this.amount = amount;
     }
 
-    // 추가 기능 구현
+    public int getAmount() {
+        return amount;
+    }
+
     public static List<Integer> getAmounts() {
         List<Integer> amounts = new ArrayList<>();
         for (Coin coin : Coin.values()) {
