@@ -2,6 +2,7 @@ package vendingmachine.service;
 
 import vendingmachine.model.Coins;
 import vendingmachine.model.Inventory;
+import vendingmachine.model.PutMoney;
 import vendingmachine.model.dto.VMInitialMoney;
 import vendingmachine.repository.VMRepository;
 
@@ -21,5 +22,9 @@ public class VMService {
 
     public void saveInventory(Inventory inventory) {
         repository.saveInventory(inventory);
+    }
+
+    public void savePutMoney(PutMoney putMoney) {
+        repository.savePutMoney(putMoney);
     }
 }

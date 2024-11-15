@@ -30,6 +30,7 @@ public class VMController {
         Inventory inventory = getInventoryFromInput();
         service.saveInventory(inventory);
         PutMoney putMoney = getPutMoneyFromInput();
+        service.savePutMoney(putMoney);
     }
 
     private VMInitialMoney getInitialMoneyFromInput() {
