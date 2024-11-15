@@ -12,8 +12,9 @@ public class VMService {
         this.repository = repository;
     }
 
-    public void createCoins(VMInitialMoney initialMoney) {
+    public Coins createCoins(VMInitialMoney initialMoney) {
         Coins coins = Coins.getFromInitialMoney(initialMoney.get());
         repository.saveCoins(coins);
+        return coins;
     }
 }

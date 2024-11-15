@@ -28,5 +28,19 @@ public class Coins {
         return new Coins(coins);
     }
 
+    @Override
+    public String toString() {
+        StringBuilder stringBuilder = new StringBuilder();
+        for (Map.Entry<Coin, Integer> entry : coins.entrySet()) {
+            Coin coin = entry.getKey();
+            int quantity = entry.getValue();
+            stringBuilder.append(coin.toString())
+                    .append(" - ")
+                    .append(quantity)
+                    .append("개")
+                    .append("\n");
+        }
+        return stringBuilder.toString();
+    }
 
 }

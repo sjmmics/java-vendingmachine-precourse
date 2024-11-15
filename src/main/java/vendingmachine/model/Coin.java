@@ -34,4 +34,9 @@ public enum Coin {
         return Coin.valueOf(name);
     }
 
+    @Override
+    public String toString() {
+        return amount + "원";
+    }
+
 }
