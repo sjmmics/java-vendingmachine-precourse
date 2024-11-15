@@ -1,5 +1,9 @@
 package vendingmachine.controller;
 
+import vendingmachine.model.Coins;
+import vendingmachine.model.Inventory;
+import vendingmachine.model.InventoryFactory;
+import vendingmachine.model.dto.VMInitialMoney;
 import vendingmachine.service.VMService;
 import vendingmachine.view.InputView;
 import vendingmachine.view.OutputView;
@@ -20,9 +24,12 @@ public class VMController {
 
     public void run() {
         VMInitialMoney initialMoney = getInitialMoney();
+        VMInitialMoney initialMoney = getInitialMoneyFromInput();
+        Coins coins = service.createCoins(initialMoney);
+        outputView.printCoins(coins);
     }
 
-    private VMInitialMoney getInitialMoney() {
+    private VMInitialMoney getInitialMoneyFromInput() {
         while (true) {
             try {
                 String line = inputView.getInitialMoney();
