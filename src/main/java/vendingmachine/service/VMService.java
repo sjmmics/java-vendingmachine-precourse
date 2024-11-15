@@ -18,4 +18,8 @@ public class VMService {
         repository.saveCoins(coins);
         return coins;
     }
+
+    public void saveInventory(Inventory inventory) {
+        repository.saveInventory(inventory);
+    }
 }
