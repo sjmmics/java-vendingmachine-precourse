@@ -18,4 +18,19 @@ public class VMController {
         this.service = service;
     }
 
+    public void run() {
+        VMInitialMoney initialMoney = getInitialMoney();
+    }
+
+    private VMInitialMoney getInitialMoney() {
+        while (true) {
+            try {
+                String line = inputView.getInitialMoney();
+                return new VMInitialMoney(line);
+            } catch (IllegalArgumentException e) {
+                System.out.println(e.getMessage());
+            }
+        }
+    }
+
 }
