@@ -49,4 +49,7 @@ public class VMInitialMoney {
         return number % MIN != 0;
     }
 
+    public int get() {
+        return money;
+    }
 }

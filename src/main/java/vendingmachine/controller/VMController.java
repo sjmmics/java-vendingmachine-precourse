@@ -21,6 +21,7 @@ public class VMController {
 
     public void run() {
         VMInitialMoney initialMoney = getInitialMoney();
+        service.createCoins(initialMoney);
     }
 
     private VMInitialMoney getInitialMoney() {

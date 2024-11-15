@@ -1,5 +1,7 @@
 package vendingmachine.service;
 
+import vendingmachine.model.Coins;
+import vendingmachine.model.dto.VMInitialMoney;
 import vendingmachine.repository.VMRepository;
 
 public class VMService {
@@ -10,4 +12,8 @@ public class VMService {
         this.repository = repository;
     }
 
+    public void createCoins(VMInitialMoney initialMoney) {
+        Coins coins = Coins.getFromInitialMoney(initialMoney.get());
+        repository.saveCoins(coins);
+    }
 }
