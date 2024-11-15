@@ -2,6 +2,7 @@ package vendingmachine.model.dto;
 
 import vendingmachine.util.message.ExceptionMessage;
 
+import static vendingmachine.util.StringValidator.DOES_OUT_OF_INT;
 import static vendingmachine.util.StringValidator.VALIDATE_BASIC_FORMAT;
 import static vendingmachine.util.StringValidator.VALIDATE_NUMBER_FORMAT;
 
@@ -19,7 +20,7 @@ public class VMInitialMoney {
     }
 
     private void validateContent(String line) {
-        if (doesOutOfIntBound(line)) {
+        if (DOES_OUT_OF_INT(line)) {
             throw new IllegalArgumentException(ExceptionMessage.OUT_OF_INT_BOUND.get());
         }
         if (doesUnderMin(line)) {
@@ -27,15 +28,6 @@ public class VMInitialMoney {
         }
         if (doesModTenNotZero(line)) {
             throw new IllegalArgumentException(ExceptionMessage.MOD_TEN_NOT_ZERO.get());
-        }
-    }
-
-    private boolean doesOutOfIntBound(String line) {
-        try {
-            Integer.parseInt(line);
-            return false;
-        } catch (NumberFormatException e) {
-            return true;
         }
     }
 
@@ -52,4 +44,5 @@ public class VMInitialMoney {
     public int get() {
         return money;
     }
+
 }
