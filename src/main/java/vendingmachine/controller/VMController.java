@@ -6,6 +6,7 @@ import vendingmachine.model.InventoryFactory;
 import vendingmachine.model.PutMoney;
 import vendingmachine.model.dto.PurchaseProduct;
 import vendingmachine.model.dto.PutMoneyDto;
+import vendingmachine.model.dto.RemainPutMoney;
 import vendingmachine.model.dto.VMInitialMoney;
 import vendingmachine.service.VMService;
 import vendingmachine.view.InputView;
@@ -47,8 +48,8 @@ public class VMController {
         Inventory inventory = service.getInventory();
         while (true) {
             try {
-                PutMoneyDto putMoneyDto = service.getPutMoneyDto();
-                String line = inputView.getPurchaseProductName(putMoneyDto);
+                RemainPutMoney remainPutMoney = service.getRemainPutMoney();
+                String line = inputView.getPurchaseProductName(remainPutMoney);
                 return PurchaseProduct.getOfLineAndInventory(line, inventory);
             } catch (IllegalArgumentException e) {
                 System.out.println(e.getMessage());

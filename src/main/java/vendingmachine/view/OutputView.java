@@ -1,6 +1,7 @@
 package vendingmachine.view;
 
 import vendingmachine.model.Coins;
+import vendingmachine.model.dto.RemainPutMoney;
 import vendingmachine.util.message.IOMessage;
 
 public class OutputView {

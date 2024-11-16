@@ -2,7 +2,7 @@ package vendingmachine.model.dto;
 
 import vendingmachine.model.PutMoney;
 
-public class PutMoneyDto {
+public class RemainPutMoney {
 
     private static final String PREFIX = "투입 금액: ";
 
@@ -10,13 +10,13 @@ public class PutMoneyDto {
 
     private final int money;
 
-    public PutMoneyDto(int money) {
+    public RemainPutMoney(int money) {
         this.money = money;
     }
 
-    public static PutMoneyDto getFromPutMoney(PutMoney putMoney) {
+    public static RemainPutMoney getFromPutMoney(PutMoney putMoney) {
         int money = putMoney.get();
-        return new PutMoneyDto(money);
+        return new RemainPutMoney(money);
     }
 
     public int get() {

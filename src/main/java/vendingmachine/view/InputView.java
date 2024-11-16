@@ -1,7 +1,7 @@
 package vendingmachine.view;
 
 import camp.nextstep.edu.missionutils.Console;
-import vendingmachine.model.dto.PutMoneyDto;
+import vendingmachine.model.dto.RemainPutMoney;
 import vendingmachine.util.message.IOMessage;
 
 public class InputView {
