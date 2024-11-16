@@ -18,11 +18,13 @@ public class InputView {
     }
 
     public String getPutMoney() {
+        System.out.println();
         System.out.println(IOMessage.ENTER_PUT_MONEY);
         return Console.readLine();
     }
 
-    public String getPurchaseProductName(PutMoneyDto putMoney) {
+    public String getPurchaseProductName(RemainPutMoney putMoney) {
+        System.out.println();
         System.out.println(putMoney);
         System.out.println(IOMessage.ENTER_PURCHASE_PRODUCT_NAME);
         return Console.readLine();
