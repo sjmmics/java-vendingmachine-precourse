@@ -3,7 +3,7 @@ package vendingmachine.repository;
 import vendingmachine.model.Coins;
 import vendingmachine.model.Inventory;
 import vendingmachine.model.PutMoney;
-import vendingmachine.model.dto.PutMoneyDto;
+import vendingmachine.model.dto.RemainPutMoney;
 
 public class VMRepository {
 
@@ -39,5 +39,9 @@ public class VMRepository {
 
     public PutMoneyDto getPutMoneyToDto() {
         return PutMoneyDto.getFromPutMoney(putMoney);
+    public RemainPutMoney getRemainPutMoney() {
+        return RemainPutMoney.getFromPutMoney(putMoney);
+    }
+
     }
 }

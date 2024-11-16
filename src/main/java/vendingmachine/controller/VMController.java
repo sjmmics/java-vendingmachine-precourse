@@ -5,7 +5,6 @@ import vendingmachine.model.Inventory;
 import vendingmachine.model.InventoryFactory;
 import vendingmachine.model.PutMoney;
 import vendingmachine.model.dto.PurchaseProduct;
-import vendingmachine.model.dto.PutMoneyDto;
 import vendingmachine.model.dto.RemainPutMoney;
 import vendingmachine.model.dto.VMInitialMoney;
 import vendingmachine.service.VMService;
