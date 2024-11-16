@@ -1,6 +1,6 @@
 package vendingmachine.model.dto;
 
-import vendingmachine.model.PutMoney;
+import vendingmachine.model.entity.PutMoney;
 
 public class RemainPutMoney {
 

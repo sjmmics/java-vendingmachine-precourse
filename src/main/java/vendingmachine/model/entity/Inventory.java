@@ -1,4 +1,4 @@
-package vendingmachine.model;
+package vendingmachine.model.entity;
 
 import vendingmachine.model.dto.PurchaseProduct;
 

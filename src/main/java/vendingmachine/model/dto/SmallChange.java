@@ -1,7 +1,7 @@
 package vendingmachine.model.dto;
 
-import vendingmachine.model.Coin;
-import vendingmachine.model.Coins;
+import vendingmachine.model.entity.Coin;
+import vendingmachine.model.entity.Coins;
 
 import java.util.Map;
 

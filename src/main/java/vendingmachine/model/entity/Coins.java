@@ -1,4 +1,4 @@
-package vendingmachine.model;
+package vendingmachine.model.entity;
 
 import camp.nextstep.edu.missionutils.Randoms;
 

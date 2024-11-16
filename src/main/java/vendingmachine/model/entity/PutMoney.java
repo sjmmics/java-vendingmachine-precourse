@@ -1,4 +1,4 @@
-package vendingmachine.model;
+package vendingmachine.model.entity;
 
 import static vendingmachine.util.StringValidator.VALIDATE_BASIC_FORMAT;
 import static vendingmachine.util.StringValidator.VALIDATE_NUMBER_FORMAT;

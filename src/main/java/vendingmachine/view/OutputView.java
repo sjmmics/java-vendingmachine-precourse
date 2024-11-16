@@ -1,6 +1,6 @@
 package vendingmachine.view;
 
-import vendingmachine.model.Coins;
+import vendingmachine.model.entity.Coins;
 import vendingmachine.model.dto.RemainPutMoney;
 import vendingmachine.model.dto.SmallChange;
 import vendingmachine.util.message.IOMessage;

@@ -1,9 +1,9 @@
 package vendingmachine.controller;
 
-import vendingmachine.model.Coins;
-import vendingmachine.model.Inventory;
-import vendingmachine.model.InventoryFactory;
-import vendingmachine.model.PutMoney;
+import vendingmachine.model.entity.Coins;
+import vendingmachine.model.entity.Inventory;
+import vendingmachine.model.entity.InventoryFactory;
+import vendingmachine.model.entity.PutMoney;
 import vendingmachine.model.dto.PurchaseProduct;
 import vendingmachine.model.dto.RemainPutMoney;
 import vendingmachine.model.dto.SmallChange;

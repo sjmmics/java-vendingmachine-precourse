@@ -1,7 +1,7 @@
 package vendingmachine.model.dto;
 
-import vendingmachine.model.Inventory;
-import vendingmachine.model.Product;
+import vendingmachine.model.entity.Inventory;
+import vendingmachine.model.entity.Product;
 import vendingmachine.util.message.ExceptionMessage;
 
 import static vendingmachine.util.StringValidator.VALIDATE_BASIC_FORMAT;
