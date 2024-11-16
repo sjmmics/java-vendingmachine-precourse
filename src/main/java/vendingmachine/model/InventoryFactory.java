@@ -29,17 +29,22 @@ public class InventoryFactory {
                                                throws IllegalArgumentException {
 
         for (String inventoryLine : inventoryLines) {
-            String[] inventorySplit = inventoryLine.split(",");
-            if (inventorySplit.length != 0) {
+            String[] inventorySplit = getInventoryLineSplit(inventoryLine);
+            if (inventorySplit.length != 3) {
                 throw new IllegalArgumentException();
             }
         }
     }
 
+    private String[] getInventoryLineSplit(String inventoryLine) {
+        String trimmedLine = inventoryLine.substring(1, inventoryLine.length() - 1);
+        return trimmedLine.split(",");
+    }
+
     private void validatePriceAndQuantityFormat(String[] inventoryLines)
                                                 throws IllegalArgumentException {
         for (String inventoryLine : inventoryLines) {
-            String[] inventorySplit = inventoryLine.split(",");
+            String[] inventorySplit = getInventoryLineSplit(inventoryLine);
             String price = inventorySplit[PRICE_INDEX];
             String quantity = inventorySplit[QUANTITY_INDEX];
             validatePriceAndQuantityDigit(price, quantity);
@@ -91,9 +96,9 @@ public class InventoryFactory {
         return inventory;
     }
 
-    private static void putProductAndQuantityToInventory(String inventoryLine,
+    private void putProductAndQuantityToInventory(String inventoryLine,
                                                          Map<Product, Integer> inventory) {
-        String[] inventoryInfos = inventoryLine.split(",");
+        String[] inventoryInfos = getInventoryLineSplit(inventoryLine);
 
         String name = inventoryInfos[NAME_INDEX];
         int price = Integer.parseInt(inventoryInfos[PRICE_INDEX]);

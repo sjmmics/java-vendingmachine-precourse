@@ -1,6 +1,7 @@
 package vendingmachine.view;
 
 import camp.nextstep.edu.missionutils.Console;
+import vendingmachine.model.dto.PutMoneyDto;
 import vendingmachine.util.message.IOMessage;
 
 public class InputView {
@@ -20,4 +21,11 @@ public class InputView {
         System.out.println(IOMessage.ENTER_PUT_MONEY);
         return Console.readLine();
     }
+
+    public String getPurchaseProductName(PutMoneyDto putMoney) {
+        System.out.println(putMoney);
+        System.out.println(IOMessage.ENTER_PURCHASE_PRODUCT_NAME);
+        return Console.readLine();
+    }
+
 }

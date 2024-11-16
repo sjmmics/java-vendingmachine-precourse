@@ -18,4 +18,11 @@ public class PutMoney {
         return new PutMoney(money);
     }
 
+    public void deduct(int price) {
+        this.money -= price;
+    }
+
+    public int get() {
+        return money;
+    }
 }

@@ -3,6 +3,8 @@ package vendingmachine.service;
 import vendingmachine.model.Coins;
 import vendingmachine.model.Inventory;
 import vendingmachine.model.PutMoney;
+import vendingmachine.model.dto.PurchaseProduct;
+import vendingmachine.model.dto.PutMoneyDto;
 import vendingmachine.model.dto.VMInitialMoney;
 import vendingmachine.repository.VMRepository;
 
@@ -26,5 +28,31 @@ public class VMService {
 
     public void savePutMoney(PutMoney putMoney) {
         repository.savePutMoney(putMoney);
+    }
+
+    public Inventory getInventory() {
+        return repository.getInventory();
+    }
+
+    public void deductPutMoneyByPurchase(PurchaseProduct purchaseProduct) {
+        int price = purchaseProduct.getPrice();
+        repository.deductPutMoney(price);
+    }
+
+    public void updateInventoryFromPurchase(PurchaseProduct purchaseProduct) {
+        Inventory inventory = repository.getInventory();
+        inventory.deductionStockFromPurchaseProduct(purchaseProduct);
+        repository.saveInventory(inventory);
+    }
+
+    public PutMoneyDto getPutMoneyDto() {
+        return repository.getPutMoneyToDto();
+    }
+
+    public boolean doesRemainToSale() {
+        Inventory inventory = repository.getInventory();
+        PutMoneyDto putMoneyDto = repository.getPutMoneyToDto();
+        int money = putMoneyDto.get();
+        return inventory.doesRemainSaleFromPutMoney(money);
     }
 }

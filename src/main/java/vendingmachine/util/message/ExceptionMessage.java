@@ -18,7 +18,11 @@ public enum ExceptionMessage {
 
     PRICE_MOD_TEN_NOT_ZERO("가격은 10원으로 나누어 떨어져야 합니다."),
 
-    ZERO_QUANTITY("수량은 1 이상이어야 합니다.");
+    ZERO_QUANTITY("수량은 1 이상이어야 합니다."),
+
+    NOT_CONTAINS_PRODUCT("주문하신 상품은 재판기에 없는 상품입니다."),
+
+    OUT_OF_STOCK("주문하신 상품 재고가 없습니다.");
 
     public static final String PREFIX = "[ERROR] ";
 

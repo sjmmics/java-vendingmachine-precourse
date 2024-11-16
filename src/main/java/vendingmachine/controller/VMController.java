@@ -4,6 +4,8 @@ import vendingmachine.model.Coins;
 import vendingmachine.model.Inventory;
 import vendingmachine.model.InventoryFactory;
 import vendingmachine.model.PutMoney;
+import vendingmachine.model.dto.PurchaseProduct;
+import vendingmachine.model.dto.PutMoneyDto;
 import vendingmachine.model.dto.VMInitialMoney;
 import vendingmachine.service.VMService;
 import vendingmachine.view.InputView;
@@ -25,13 +27,39 @@ public class VMController {
 
     public void run() {
         VMInitialMoney initialMoney = getInitialMoneyFromInput();
-        Coins coins = service.createCoins(initialMoney);
-        outputView.printCoins(coins);
-        Inventory inventory = getInventoryFromInput();
-        service.saveInventory(inventory);
-        PutMoney putMoney = getPutMoneyFromInput();
-        service.savePutMoney(putMoney);
+        createCoinsAndSave(initialMoney);
+        createInventoryAndSave();
+        createPutMoneyAndSave();
+        makeSale();
+
+
     }
+
+    private void makeSale() {
+        do {
+            PurchaseProduct purchaseProduct = getPurchaseProductFromInput();
+            service.deductPutMoneyByPurchase(purchaseProduct);
+            service.updateInventoryFromPurchase(purchaseProduct);
+        } while (doesRemainToSale());
+    }
+
+    private PurchaseProduct getPurchaseProductFromInput() {
+        Inventory inventory = service.getInventory();
+        while (true) {
+            try {
+                PutMoneyDto putMoneyDto = service.getPutMoneyDto();
+                String line = inputView.getPurchaseProductName(putMoneyDto);
+                return PurchaseProduct.getOfLineAndInventory(line, inventory);
+            } catch (IllegalArgumentException e) {
+                System.out.println(e.getMessage());
+            }
+        }
+    }
+
+    private boolean doesRemainToSale() {
+        return service.doesRemainToSale();
+    }
+
 
     private VMInitialMoney getInitialMoneyFromInput() {
         while (true) {
@@ -42,6 +70,16 @@ public class VMController {
                 System.out.println(e.getMessage());
             }
         }
+    }
+
+    private void createCoinsAndSave(VMInitialMoney initialMoney) {
+        Coins coins = service.createCoins(initialMoney);
+        outputView.printCoins(coins);
+    }
+
+    private void createInventoryAndSave() {
+        Inventory inventory = getInventoryFromInput();
+        service.saveInventory(inventory);
     }
 
     private Inventory getInventoryFromInput() {
@@ -56,6 +94,11 @@ public class VMController {
         }
     }
 
+    private void createPutMoneyAndSave() {
+        PutMoney putMoney = getPutMoneyFromInput();
+        service.savePutMoney(putMoney);
+    }
+
     private PutMoney getPutMoneyFromInput() {
         while (true) {
             try {
@@ -66,6 +109,9 @@ public class VMController {
             }
         }
     }
+
+
+
 
 
 }
