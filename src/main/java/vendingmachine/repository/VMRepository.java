@@ -29,19 +29,15 @@ public class VMRepository {
         return inventory;
     }
 
-    public PutMoney getPutMoney() {
-        return null;
-    }
-
     public void deductPutMoney(int price) {
         this.putMoney.deduct(price);
     }
 
-    public PutMoneyDto getPutMoneyToDto() {
-        return PutMoneyDto.getFromPutMoney(putMoney);
     public RemainPutMoney getRemainPutMoney() {
         return RemainPutMoney.getFromPutMoney(putMoney);
     }
 
+    public Coins getCoins() {
+        return coins;
     }
 }

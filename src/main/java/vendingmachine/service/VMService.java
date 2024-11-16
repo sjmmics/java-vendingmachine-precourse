@@ -4,8 +4,8 @@ import vendingmachine.model.Coins;
 import vendingmachine.model.Inventory;
 import vendingmachine.model.PutMoney;
 import vendingmachine.model.dto.PurchaseProduct;
-import vendingmachine.model.dto.PutMoneyDto;
 import vendingmachine.model.dto.RemainPutMoney;
+import vendingmachine.model.dto.SmallChange;
 import vendingmachine.model.dto.VMInitialMoney;
 import vendingmachine.repository.VMRepository;
 
@@ -56,4 +56,11 @@ public class VMService {
         int money = remainPutMoney.get();
         return inventory.doesRemainSaleFromPutMoney(money);
     }
+
+    public SmallChange getSmallChange() {
+        RemainPutMoney remainPutMoney = repository.getRemainPutMoney();
+        Coins coins = repository.getCoins();
+        return SmallChange.getOf(remainPutMoney, coins);
+    }
+
 }

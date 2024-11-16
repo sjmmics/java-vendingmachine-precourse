@@ -6,6 +6,7 @@ import vendingmachine.model.InventoryFactory;
 import vendingmachine.model.PutMoney;
 import vendingmachine.model.dto.PurchaseProduct;
 import vendingmachine.model.dto.RemainPutMoney;
+import vendingmachine.model.dto.SmallChange;
 import vendingmachine.model.dto.VMInitialMoney;
 import vendingmachine.service.VMService;
 import vendingmachine.view.InputView;
@@ -31,8 +32,7 @@ public class VMController {
         createInventoryAndSave();
         createPutMoneyAndSave();
         makeSale();
-
-
+        printSmallChange();
     }
 
     private void makeSale() {
@@ -59,7 +59,6 @@ public class VMController {
     private boolean doesRemainToSale() {
         return service.doesRemainToSale();
     }
-
 
     private VMInitialMoney getInitialMoneyFromInput() {
         while (true) {
@@ -110,8 +109,10 @@ public class VMController {
         }
     }
 
-
-
-
+    private void printSmallChange() {
+        SmallChange smallChange = service.getSmallChange();
+        RemainPutMoney putMoney = service.getRemainPutMoney();
+        outputView.printSmallChange(smallChange, putMoney);
+    }
 
 }
